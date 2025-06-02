@@ -1,32 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for responsive design and browser compatibility -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- External font imports for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />   
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <title>clock</title>  
+    
+    <!-- Page title -->
+    <title>Nexus Clock - Time Redefined</title>
+    
+    <!-- Favicon for professional touch -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏰</text></svg>">
 </head>
 <body>
-    <section class="hero">
-        <h1 id="time">T I M E</h1><br><br>
-        <h1 data-aos="fade-up" data-aos-duration="1500" id="clock"></h1>
-        <section data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500" id="mmddyy"></section>
-        <p class="animate__animated animate__fadeInLeft animate__delay-3s" id="madeby">Made by <a href="https://github.com/itfeelsharsh" target="_blank"> Harsh </a></p>
-        <p class="animate__animated animate__fadeInRight animate__delay-4s"  id="made">Made with Html, Css & Javascript</p>
-    </section>
+    <!-- Animated background particles -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <!-- Gradient overlay for depth -->
+    <div class="gradient-overlay"></div>
+    
+    <!-- Main application container -->
+    <main class="app-container">
+        <!-- Header section with branding -->
+        <header class="app-header">
+            <div class="logo-container">
+                <i class="fas fa-clock logo-icon"></i>
+                <h1 class="app-title">Nexus Clock</h1>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-btn" class="theme-button" aria-label="Toggle theme">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Main clock display section -->
+        <section class="clock-section">
+            <!-- Primary time display -->
+            <div class="time-container">
+                <div class="time-wrapper">
+                    <div id="digital-clock" class="digital-time">
+                        <span class="time-segment hours">00</span>
+                        <span class="time-separator">:</span>
+                        <span class="time-segment minutes">00</span>
+                        <span class="time-separator">:</span>
+                        <span class="time-segment seconds">00</span>
+                    </div>
+                    <div class="period-indicator">
+                        <span id="period" class="period">AM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Date and timezone information -->
+            <div class="date-info">
+                <div class="date-container">
+                    <div id="current-date" class="current-date">
+                        <span class="day-name">Monday</span>
+                        <span class="date-separator">•</span>
+                        <span class="month-day">January 1</span>
+                        <span class="date-separator">•</span>
+                        <span class="year">2024</span>
+                    </div>
+                </div>
+                
+                <!-- Timezone and location display -->
+                <div class="timezone-info">
+                    <div class="timezone-container">
+                        <i class="fas fa-globe-americas timezone-icon"></i>
+                        <span id="timezone" class="timezone-text">UTC-8 (PST)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Additional features section -->
+        <section class="features-section">
+            <!-- Weather widget placeholder -->
+            <div class="feature-card weather-card">
+                <div class="card-header">
+                    <i class="fas fa-cloud-sun weather-icon"></i>
+                    <h3 class="card-title">Weather</h3>
+                </div>
+                <div class="weather-content">
+                    <div class="temperature">22°C</div>
+                    <div class="weather-desc">Partly Cloudy</div>
+                </div>
+            </div>
+            
+            <!-- Timer/Stopwatch widget -->
+            <div class="feature-card timer-card">
+                <div class="card-header">
+                    <i class="fas fa-stopwatch timer-icon"></i>
+                    <h3 class="card-title">Stopwatch</h3>
+                </div>
+                <div class="timer-content">
+                    <div id="stopwatch-display" class="stopwatch-time">00:00:00</div>
+                    <div class="timer-controls">
+                        <button id="start-stop-btn" class="control-btn start-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button id="reset-btn" class="control-btn reset-btn">
+                            <i class="fas fa-undo"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer with attribution -->
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p class="attribution">
+                    Crafted with <i class="fas fa-heart heart-icon"></i> by 
+                    <a href="https://github.com/itfeelsharsh" target="_blank" rel="noopener noreferrer" class="author-link">
+                        Harsh
+                    </a>
+                </p>
+                <p class="tech-stack">
+                    Built with HTML5, CSS3 & Modern JavaScript
+                </p>
+            </div>
+        </footer>
+    </main>
+    
+    <!-- JavaScript for functionality -->
     <script src="js/script.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>  
 </body>
 </html>
